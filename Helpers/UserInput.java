@@ -10,10 +10,8 @@ public class UserInput {
 
     private String setInput(String promptMsg) {
         Scanner scanner = new Scanner(System.in);
-        String result = "";
         System.out.println(promptMsg);
-        result = scanner.next();
-        return result;
+        return scanner.next();
     }
 
     public String getInput() {
