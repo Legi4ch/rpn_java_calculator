@@ -14,8 +14,10 @@ public class ToRpn {
         } else {
             throw new InputMismatchException("Input is wrong");
         }
-    }
+     }
+
     public String getRpn() {
+        System.out.println(this.rpn);
         return this.rpn;
     }
 

@@ -48,13 +48,15 @@ public class RpnCalc {
                             stack.push(first + second);
                             break;
                         case ('-'):
-                            stack.push(first - second);
+                            //stack.push(first - second);
+                            stack.push(second - first);
                             break;
                         case ('*'):
                             stack.push(first * second);
                             break;
                         case ('/'):
-                            stack.push(first / second);
+                            //stack.push(first / second);
+                            stack.push(second / first);
                             break;
                     }
                 } catch (EmptyStackException ex) {

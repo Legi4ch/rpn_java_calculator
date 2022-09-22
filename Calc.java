@@ -11,7 +11,7 @@ public class Calc {
         ToRpn Rpn = new ToRpn(ui.getInput());
         String rpn = Rpn.getRpn();
         RpnCalc calc = new RpnCalc(rpn);
-        System.out.format("%f",calc.getCalcResult());
+        System.out.format("%f", calc.getCalcResult());
     }
 
 }
