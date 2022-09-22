@@ -6,19 +6,19 @@ import Helpers.Weights;
 
 public class RpnCalc {
 
-    private float calcResult = 0.0F;
+    private double calcResult = 0.0;
 
     public RpnCalc(String rpn) {
         this.calcResult = Calc(rpn);
     }
 
-    public float getCalcResult() {
+    public double getCalcResult() {
         return this.calcResult;
     }
 
-    private float Calc(String rpn) {
+    private double Calc(String rpn) {
         String value = new String();
-        Stack<Float> stack = new Stack<>();
+        Stack<Double> stack = new Stack<>();
         for (int i = 0; i < rpn.length(); i++) {
             if (rpn.charAt(i) == ' ') {
                 continue;
@@ -33,7 +33,7 @@ public class RpnCalc {
                     }
                 }
                 //помещаем число в стек
-                stack.push(Float.parseFloat(value));
+                stack.push(Double.parseDouble(value));
                 //очищаем строку
                 value = new String();
             }
@@ -41,7 +41,7 @@ public class RpnCalc {
             if (Weights.getChWeight(rpn.charAt(i)) > 2) {
                 //забираем из стэка два числа
                 try {
-                    float first = stack.pop(), second = stack.pop();
+                    Double first = stack.pop(), second = stack.pop();
                     //производим операцию с ними
                     switch (rpn.charAt(i)) {
                         case ('+'):
