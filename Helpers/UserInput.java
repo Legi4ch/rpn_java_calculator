@@ -11,7 +11,7 @@ public class UserInput {
     private String setInput(String promptMsg) {
         Scanner scanner = new Scanner(System.in);
         System.out.println(promptMsg);
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public String getInput() {
