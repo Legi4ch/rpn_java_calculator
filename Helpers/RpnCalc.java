@@ -49,7 +49,7 @@ public class RpnCalc {
                     Double first = 0.0, second = 0.0;
                     if (stack.size() == 1) { //если в стэке только одно число (при вычитании отрицательных чисел)
                         first = stack.pop();
-                        second = 0.0;
+                        second = 0.0; //подставлям 0 первым числом и вычитаем из него
                     } else { // в стэке есть два числа
                         first = stack.pop();
                         second = stack.pop();
@@ -71,7 +71,6 @@ public class RpnCalc {
                     }
                 } catch (EmptyStackException ex) {
                     System.out.println("Rpn string is wrong");
-                    //System.out.println(ex.getMessage());
                 }
             }
         }

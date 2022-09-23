@@ -40,6 +40,7 @@ public class ToRpn {
             return false;
         }
     }
+
     private void convertToRpn(String expr) {
         String result = "";
         Stack<Character> stack = new Stack<>();
