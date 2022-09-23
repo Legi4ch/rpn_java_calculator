@@ -9,7 +9,7 @@ public class ToRpn {
     private String rpn = new String();
 
     public ToRpn(String expression) {
-        if (checkAlpha(expression) && checkParenthesis(expression)) {
+        if (checkParenthesis(expression)) {
             convertToRpn(expression.replaceAll("\\s",""));
         } else {
             throw new InputMismatchException("Input is wrong");
@@ -17,17 +17,7 @@ public class ToRpn {
      }
 
     public String getRpn() {
-        System.out.println(this.rpn);
         return this.rpn;
-    }
-
-    //проверка на наличие букв в строке ввода
-    private boolean checkAlpha(String input) {
-        if (input.matches("^\\w*$")) {
-            return false;
-        } else {
-            return true;
-        }
     }
 
     //проверка на скобки
@@ -80,7 +70,6 @@ public class ToRpn {
             }
             //закрывающая скобка
             if (priority == 1) {
-                //result += " "; //добавляем пробел, чтобы разделить числа в выводе
                 while (Weights.getChWeight(stack.peek()) != 2) { //пока не доберемся до открывающей скобки
                     result += " " + stack.pop(); //все знаки пишем в вывод
                 }

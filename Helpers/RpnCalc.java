@@ -1,6 +1,7 @@
 package Helpers;
 
 import java.util.EmptyStackException;
+import java.util.InputMismatchException;
 import java.util.Stack;
 import Helpers.Weights;
 
@@ -33,7 +34,11 @@ public class RpnCalc {
                     }
                 }
                 //помещаем число в стек
-                stack.push(Double.parseDouble(value));
+                try{
+                    stack.push(Double.parseDouble(value));
+                } catch (NumberFormatException ex) {
+                    throw new InputMismatchException("Input is wrong");
+                }
                 //очищаем строку
                 value = new String();
             }
@@ -48,14 +53,12 @@ public class RpnCalc {
                             stack.push(first + second);
                             break;
                         case ('-'):
-                            //stack.push(first - second);
                             stack.push(second - first);
                             break;
                         case ('*'):
                             stack.push(first * second);
                             break;
                         case ('/'):
-                            //stack.push(first / second);
                             stack.push(second / first);
                             break;
                     }
