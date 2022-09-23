@@ -44,9 +44,16 @@ public class RpnCalc {
             }
             //если появился знак операции
             if (Weights.getChWeight(rpn.charAt(i)) > 2) {
-                //забираем из стэка два числа
+                //забираем из стэка
                 try {
-                    Double first = stack.pop(), second = stack.pop();
+                    Double first = 0.0, second = 0.0;
+                    if (stack.size() == 1) { //если в стэке только одно число (при вычитании отрицательных чисел)
+                        first = stack.pop();
+                        second = 0.0;
+                    } else { // в стэке есть два числа
+                        first = stack.pop();
+                        second = stack.pop();
+                    }
                     //производим операцию с ними
                     switch (rpn.charAt(i)) {
                         case ('+'):
@@ -64,6 +71,7 @@ public class RpnCalc {
                     }
                 } catch (EmptyStackException ex) {
                     System.out.println("Rpn string is wrong");
+                    //System.out.println(ex.getMessage());
                 }
             }
         }
