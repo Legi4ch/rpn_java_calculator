@@ -22,19 +22,13 @@ public class ToRpn {
 
     //проверка на скобки
     private boolean checkParenthesis(String input) {
-        Stack<Character> open = new Stack<>();
-        Stack<Character> close = new Stack<>();
-        for (int i=0; i<input.length(); i++) {
-            switch (input.charAt(i)) {
-                case ('('):
-                    open.push(input.charAt(i));
-                    break;
-                case (')'):
-                    close.push(input.charAt(i));
-                    break;
+        int result = 0;
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == '(' || input.charAt(i) == ')') {
+                result++;
             }
         }
-        if (open.size() == close.size()) {
+        if (result % 2 == 0) {
             return true;
         } else {
             return false;
