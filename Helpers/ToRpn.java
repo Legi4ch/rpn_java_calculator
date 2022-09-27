@@ -22,17 +22,13 @@ public class ToRpn {
 
     //проверка на скобки
     private boolean checkParenthesis(String input) {
-        int result = 0;
+        int counter = 0;
         for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) == '(' || input.charAt(i) == ')') {
-                result++;
+                counter++;
             }
         }
-        if (result % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return counter % 2 == 0 ? true : false;
     }
 
     private void convertToRpn(String expr) {
